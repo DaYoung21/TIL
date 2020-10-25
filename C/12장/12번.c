@@ -6,7 +6,6 @@ int main()
 {
 	char S[100] = { 0 };
 	char* token;
-	int count = 0;
 	char seps[] = " ";
 	char str[100][100]= { 0 };
 
@@ -23,7 +22,6 @@ int main()
 
 	for (int i = 0; token != NULL; i++)
 	{
-		count++;
 		strcpy(str[i], token);
 		token = strtok(NULL, seps);
 	}
