@@ -1,49 +1,24 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
-#define SIZE 10
-int selection_sort(int a[]);
-
+#include<stdio.h>
+#include<stdlib.h>
+#define SIZE 100
 int main()
 {
-	int a[10] = { 0 };
-	int result;
-
-	srand((unsigned)time(NULL));
-
-	for (int i = 1; i <= 100; i++)
+	int a[SIZE];
+	int count[10] = { 0 };
+	int max, num;
+	
+	for (int i = 0; i < SIZE; i++)\
 	{
-		result = rand() % 10;
-		for (int j = 0; j < 10; j++)
-		{
-			if (result == j)
-				a[j] += 1;
+		a[i] = rand() % 10;
+		count[a[i]]++;
+	}
+	max = count[0];
+
+	for (int i = 1; i < 10; i++) {
+		if (count[i] > max) {
+			max = count[i];
+			num = i;
 		}
 	}
-	printf("가장 많이 나온 수 = %d\n", selection_sort(a));
-
-	return 0;
-}
-
-
-int selection_sort(int a[])
-{
-	int i, j, tmp, highest;
-
-	highest = a[9];
-
-	for (i = 0; i < SIZE; i++)
-	{
-		for (j = i + 1; j < SIZE; j++)
-		{
-			if (a[j] > highest)
-				highest = j;
-		}
-		tmp = a[i];
-		a[i] = a[highest];
-		a[highest] = tmp;
-	}
-
-	return a[highest];
+	printf("가장 많이 나온 수=%d",num);
 }
