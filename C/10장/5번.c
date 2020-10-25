@@ -14,8 +14,10 @@ int main()
 	}
 	max = count[0];
 
-	for (int i = 1; i < 10; i++) {
-		if (count[i] > max) {
+	for (int i = 1; i < 10; i++)
+	{
+		if (count[i] > max) 
+		{
 			max = count[i];
 			num = i;
 		}
